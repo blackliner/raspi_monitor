@@ -9,4 +9,4 @@ For an automatic start:
 
 To upgrade the package:
 - install this package to root with pip: `sudo python3 -m pip install .`
-- systemctl daemon-reload
+- sudo systemctl daemon-reload

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import os
 import argparse
 import psutil
 import time
@@ -14,8 +15,22 @@ from datetime import datetime
 round_to_n = lambda x, n: 0 if x == 0 else round(float(x), -int(floor(log10(x))) + (n - 1))
 
 
+def read_thermal_zone(thermal_zone_path):
+    with open(thermal_zone_path) as f:
+        line = f.readline()
+        return int(line.strip()) / 1000.0
+
+
 def read_cpu_temp():
-    return float(subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")[5:-5])
+    temperatures = {}
+
+    thermal_zone_base_path = "/sys/class/thermal"
+    for zone_name in sorted(os.listdir(thermal_zone_base_path)):
+        temperature_path = os.path.join(thermal_zone_base_path, zone_name, "temp")
+        if os.path.isfile(temperature_path):
+            temperatures[zone_name] = read_thermal_zone(temperature_path)
+
+    return temperatures
 
 
 def read_cpu_speed():
@@ -75,7 +90,7 @@ def main():
         message = {}
 
         message["cpu"] = {
-            "temp": read_cpu_temp(),
+            "temp": read_cpu_temp()["thermal_zone0"],
             "util": psutil.cpu_percent(),
             "speed": read_cpu_speed(),
         }
