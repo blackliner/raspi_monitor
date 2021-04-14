@@ -1,0 +1,12 @@
+# systemd unit file for the Raspi Monitor Service
+
+[Unit]
+Description=Raspi Monitor Service
+
+[Service]
+ExecStart=/usr/bin/python3 -m raspi_monitor
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
