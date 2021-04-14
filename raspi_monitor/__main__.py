@@ -39,6 +39,9 @@ def read_cpu_speed():
 
 
 def get_throttled():
+    def _check_bit(data, position):
+        return int(bool(data & 2**position))
+        
     """
     Bit     Hex value   Meaning
     0       1           Under-voltage detected
@@ -53,14 +56,14 @@ def get_throttled():
     raw_data = subprocess.check_output(["vcgencmd", "get_throttled"]).decode("utf-8").strip()
     data = int(raw_data[10:], 0)
     return {
-        "Under-voltage detected": data & 0x1,
-        "Arm frequency capped": data & 0x2,
-        "Currently throttled": data & 0x4,
-        "Soft temperature limit active": data & 0x8,
-        "Under-voltage has occurred": data & 0x10000,
-        "Arm frequency capping has occurred": data & 0x20000,
-        "Throttling has occurred": data & 0x40000,
-        "Soft temperature limit has occurred": data & 0x80000,
+        "Under-voltage detected": _check_bit(data, 0),
+        "Arm frequency capped": _check_bit(data, 1),
+        "Currently throttled": _check_bit(data, 2),
+        "Soft temperature limit active": _check_bit(data, 3),
+        "Under-voltage has occurred": _check_bit(data, 16),
+        "Arm frequency capping has occurred": _check_bit(data, 17),
+        "Throttling has occurred": _check_bit(data, 18),
+        "Soft temperature limit has occurred": _check_bit(data, 19),
     }
 
 
