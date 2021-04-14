@@ -5,7 +5,7 @@ description = ""
 authors = ["Florian Berchtold <florian.berchtold@luminartech.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.6"
 paho-mqtt = "^1.5.1"
 psutil = "^5.8.0"
 
