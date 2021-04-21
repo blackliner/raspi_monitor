@@ -4,7 +4,7 @@ set -euxo pipefail
 
 #install vcgencmd
 sudo apt update
-sudo apt install -ylibraspberrypi-bin
+sudo apt install -y libraspberrypi-bin
 
 sudo python3 -m pip install .
 
