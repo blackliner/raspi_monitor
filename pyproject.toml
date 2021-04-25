@@ -7,7 +7,7 @@ authors = ["Florian Berchtold <florian.berchtold@luminartech.com>"]
 [tool.poetry.dependencies]
 python = "^3.6"
 paho-mqtt = "^1.5.1"
-psutil = "^5.8.0"
+psutil = "^5.5.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
