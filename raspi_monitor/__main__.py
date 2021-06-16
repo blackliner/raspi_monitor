@@ -79,7 +79,7 @@ def main():
 
     def mqtt_connect():
         try:
-            mqtt_client.connect(host="ubuntu-server")
+            mqtt_client.connect(host="ubuntu-server-new")
             logging.info("mqtt broker available")
             return True
         except:
