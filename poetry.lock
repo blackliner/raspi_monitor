@@ -65,7 +65,7 @@ pyparsing = ">=2.0.2"
 
 [[package]]
 name = "paho-mqtt"
-version = "1.5.1"
+version = "1.6.1"
 description = "MQTT version 5.0/3.1.1 client class"
 category = "main"
 optional = false
@@ -168,7 +168,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "ffcfa513f6d4200f605b09f06b5b98e309582ba107e0d42981db74f1db371bf4"
+content-hash = "986a60457d1b2dda41d0f312e16e5c89fdfe5b19f9a2c80dbef3f1c94762c294"
 
 [metadata.files]
 atomicwrites = [
@@ -196,7 +196,7 @@ packaging = [
     {file = "packaging-20.9.tar.gz", hash = "sha256:5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"},
 ]
 paho-mqtt = [
-    {file = "paho-mqtt-1.5.1.tar.gz", hash = "sha256:9feb068e822be7b3a116324e01fb6028eb1d66412bf98595ae72698965cb1cae"},
+    {file = "paho-mqtt-1.6.1.tar.gz", hash = "sha256:2a8291c81623aec00372b5a85558a372c747cbca8e9934dfe218638b8eefc26f"},
 ]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
